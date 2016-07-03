@@ -1,9 +1,13 @@
+import { Http } from 'angular2/http';
+import 'rxjs/add/operator/map';
+import {Injectable} from 'angular2/core';
 
+@Injectable()
 export class QuizService{
     quiz = [];
   
 
-    constructor(){
+    constructor(private _http : Http){
        
         var require: any
       //  this.quiz = require("./quiz.json");
@@ -44,7 +48,8 @@ export class QuizService{
     }
 
     getQuestions(){
-        return this.quiz;
+        return this._http.get("http://localhost:5000/quizlist")
+            .map(res => res.json());
     }
     getChoices():string[]{
         return [];

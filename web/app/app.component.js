@@ -28,7 +28,7 @@ System.register(['angular2/core', './quiz.component'], function(exports_1, conte
                     core_1.Component({
                         selector: 'my-app',
                         template: "\n            <h1>Macro economics QUIZ</h1>\n            <quiz> </quiz>\n           \n            ",
-                        directives: [quiz_component_1.QuizComponent]
+                        directives: [quiz_component_1.QuizComponent],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

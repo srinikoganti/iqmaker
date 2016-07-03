@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core'
 import {QuestionComponent} from './question.component'
 import {QuizService} from './quiz.service'
+import {HTTP_PROVIDERS} from 'angular2/http'
 
 @Component({
     selector: 'quiz',
@@ -13,7 +14,7 @@ import {QuizService} from './quiz.service'
        </ul>
        `,
     directives: [ QuestionComponent ],
-    providers: [QuizService]
+    providers: [QuizService,HTTP_PROVIDERS]
 })
 export class QuizComponent {
 
@@ -22,7 +23,7 @@ questions = [];
 constructor(quizList : QuizService ){
     console.log("Quiz is called");
     
-    this.questions = quizList.getQuestions();
+    
 
     for (var qs of this.questions) {
             console.log(qs.question);

@@ -1,4 +1,4 @@
-System.register(['angular2/core', './question.component', './quiz.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './question.component', './quiz.service', 'angular2/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './question.component', './quiz.service'], fun
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, question_component_1, quiz_service_1;
+    var core_1, question_component_1, quiz_service_1, http_1;
     var QuizComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', './question.component', './quiz.service'], fun
             },
             function (quiz_service_1_1) {
                 quiz_service_1 = quiz_service_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             QuizComponent = (function () {
@@ -32,7 +35,6 @@ System.register(['angular2/core', './question.component', './quiz.service'], fun
                         choice1: "Answer choice 1"
                     };
                     console.log("Quiz is called");
-                    this.questions = quizList.getQuestions();
                     for (var _i = 0, _a = this.questions; _i < _a.length; _i++) {
                         var qs = _a[_i];
                         console.log(qs.question);
@@ -50,7 +52,7 @@ System.register(['angular2/core', './question.component', './quiz.service'], fun
                         selector: 'quiz',
                         template: "\n       <ul>\n        <li *ngFor = \"#que of questions\">\n        <question [mcq] =  \"que\" > </question> \n        </li>\n       </ul>\n       ",
                         directives: [question_component_1.QuestionComponent],
-                        providers: [quiz_service_1.QuizService]
+                        providers: [quiz_service_1.QuizService, http_1.HTTP_PROVIDERS]
                     }), 
                     __metadata('design:paramtypes', [quiz_service_1.QuizService])
                 ], QuizComponent);

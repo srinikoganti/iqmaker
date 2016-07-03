@@ -8,6 +8,7 @@ import {QuizComponent} from './quiz.component'
             <quiz> </quiz>
            
             `,
-    directives: [QuizComponent]
+    directives: [QuizComponent],
+
 })
 export class AppComponent { }
