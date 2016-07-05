@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd /var/www/iqmaker
+nohup npm app.js &
+
+cd /var/www/aimivy
+nohup npm app.js &
+
+cd /var/www/skillyes
+nohup npm app.js &
+
+cd /var/www/ghost
+nohup npm start --production &
+
+service nginx start
+
