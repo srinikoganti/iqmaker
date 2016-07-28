@@ -1,0 +1,7 @@
+<div>
+<h4> {{ question.question }} </h4>
+<ul style="list-style: none;"  >
+<li *ngFor="#key of keys();" >
+    <label> <input type="checkbox" value="">{{question.choices[key]}}</label> 
+</ul>
+<div>
