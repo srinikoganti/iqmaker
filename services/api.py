@@ -1,9 +1,13 @@
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
+from flask_cors import CORS, cross_origin
+
 import json
 from pprint import pprint
 
 app = Flask(__name__)
+CORS(app)
+
 api = Api(app)
 
 def abort_if_todo_doesnt_exist(todo_id):
