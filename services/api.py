@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
 from flask_cors import CORS, cross_origin
+import sys,yaml,json
+
 
 import json
 from pprint import pprint
@@ -51,10 +53,25 @@ class QuizList(Resource):
         todo_id = 'todo%i' % todo_id
         TODOS[todo_id] = {'task': args['task']}
         return TODOS[todo_id], 201
+
+class Lab(Resource):
+    def get(self):
+	with open('devops.yaml', 'r') as f:
+    		doc = yaml.load(f)
+	labInfo = json.dumps(doc,indent=4)
+	return labInfo
+
+    def post(self):
+        args = parser.parse_args()
+        todo_id = int(max(TODOS.keys()).lstrip('todo')) + 1
+        todo_id = 'todo%i' % todo_id
+        TODOS[todo_id] = {'task': args['task']}
+        return TODOS[todo_id], 201
 ##
 ## Actually setup the Api resource routing here
 ##
 api.add_resource(QuizList, '/quizlist')
+api.add_resource(Lab, '/lab')
 #api.add_resource(Todo, '/todos/<todo_id>')
 
 
