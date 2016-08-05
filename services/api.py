@@ -20,27 +20,6 @@ parser = reqparse.RequestParser()
 parser.add_argument('task')
 
 
-# Todo
-# shows a single todo item and lets you delete a todo item
-class Todo(Resource):
-    def get(self, todo_id):
-        abort_if_todo_doesnt_exist(todo_id)
-        return TODOS[todo_id]
-
-    def delete(self, todo_id):
-        abort_if_todo_doesnt_exist(todo_id)
-        del TODOS[todo_id]
-        return '', 204
-
-    def put(self, todo_id):
-        args = parser.parse_args()
-        task = {'task': args['task']}
-        TODOS[todo_id] = task
-        return task, 201
-
-
-# TodoList
-# shows a list of all todos, and lets you POST to add new tasks
 class QuizList(Resource):
     def get(self):
         with open('quiz.json') as data_file:    
@@ -54,24 +33,33 @@ class QuizList(Resource):
         TODOS[todo_id] = {'task': args['task']}
         return TODOS[todo_id], 201
 
-class Lab(Resource):
-    def get(self):
-	with open('devops.yaml', 'r') as f:
-    		doc = yaml.load(f)
-	labInfo = json.dumps(doc,indent=4)
-	return labInfo
 
-    def post(self):
-        args = parser.parse_args()
-        todo_id = int(max(TODOS.keys()).lstrip('todo')) + 1
-        todo_id = 'todo%i' % todo_id
-        TODOS[todo_id] = {'task': args['task']}
-        return TODOS[todo_id], 201
+class Lab(Resource):
+    labInfo={}
+    def readConfig(self):
+        print ( "Init is called")
+        with open('devops.yaml', 'r') as f:
+            doc = yaml.load(f)
+
+        jsonData = json.dumps(doc,indent=4)
+        
+        self.labInfo = json.loads(jsonData)
+        print (self.labInfo)
+
+        
+    def get(self, course_name, lab_id):
+        self.readConfig()
+        print ( course_name, lab_id )
+        if( self.labInfo["Course"]["name"] == course_name ):       
+            return self.labInfo["Course"]
+        else:
+            return self.labInfo	    
+
 ##
 ## Actually setup the Api resource routing here
 ##
 api.add_resource(QuizList, '/quizlist')
-api.add_resource(Lab, '/lab')
+api.add_resource(Lab, '/lab/<course_name>/<lab_id>')
 #api.add_resource(Todo, '/todos/<todo_id>')
 
 
