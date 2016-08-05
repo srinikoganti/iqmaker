@@ -1,71 +1,36 @@
-Course:
-  Description: "DevOps bootcamp"
-  Id: 1
-  name: "devops"
-  Labs:
-   - Lab:
-      Title: "Maven"
-      LabNumber: 1
-      Machines:
-        - Machine:
-          ImageID: 1
-          ImageName: "base_rhel_7"
-          size:  "s"
-        - Machine:
-           ImageID: 1
-           ImageName: "base_rhel_7"
-           size: "s"
+Courses:
+  - Course:
+     Description: "DevOps bootcamp"
+     Id: 1
+     name: "devops"
+     Labs:
+      - Lab:
+          Title: "Maven"
+          LabNumber: 1
+          Machines:
+            - Machine:
+                ImageID: 1
+                ImageName: "base_rhel_7"
+                size:  "s"
+            - Machine:
+                ImageID: 1
+                ImageName: "base_rhel_7"
+                size: "s"
 
-   - Lab:
-      Title: "Jenkins"
-      LabNumber: 2
-      Machines:
-       - Machine:
-         ImageID: 4
-         ImageName: "jenkins_rhel_7"
-         size:  "s"
-       - Machine:
-          ImageID: 5
-          ImageName: "build_rhel_7"
-          size: "s"
-       - Machine:
-          ImageID: 6
-          ImageName: "artifactory_rhel_7"
-          size: "s"
-
-Course:
-  Description: "Machine Learning"
-  Id: 2
-  name: "ml"
-  Labs:
-   - Lab:
-      Title: "Deep learning"  
-      LabNumber: 1
-      Machines:
-        - Machine:
-          ImageID: 1
-          ImageName: "base_rhel_7"
-          size:  "s"
-        - Machine:
-           ImageID: 1
-           ImageName: "base_rhel_7"
-           size: "s"
-
-   - Lab:
-      Title: "Image Recognition"
-      LabNumber: 2
-      Machines:
-       - Machine:
-         ImageID: 4
-         ImageName: "jenkins_rhel_7"
-         size:  "s"
-       - Machine:
-          ImageID: 5
-          ImageName: "build_rhel_7"
-          size: "s"
-       - Machine:
-          ImageID: 6
-          ImageName: "artifactory_rhel_7"
-          size: "s"
-
-  
+  - Course:
+     Description: "Machine Learning bootcamp"
+     Id: 2
+     name: "ml"
+     Labs:
+      - Lab:
+          Title: "Deep Learning"
+          LabNumber: 1
+          Machines:
+            - Machine:
+                ImageID: 1
+                ImageName: "base_rhel_7"
+                size:  "s"
+            - Machine:
+                ImageID: 1
+                ImageName: "base_rhel_7"
+                size: "s"

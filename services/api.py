@@ -50,10 +50,11 @@ class Lab(Resource):
     def get(self, course_name, lab_id):
         self.readConfig()
         print ( course_name, lab_id )
-        if( self.labInfo["Course"]["name"] == course_name ):       
-            return self.labInfo["Course"]
-        else:
-            return self.labInfo	    
+        for course in self.labInfo["Courses"]:
+            print ( course )
+            if( course["Course"]["name"] == course_name ):       
+                return course["Course"]
+        return {}   
 
 ##
 ## Actually setup the Api resource routing here
