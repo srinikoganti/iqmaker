@@ -38,7 +38,7 @@ class Lab(Resource):
     labInfo={}
     def readConfig(self):
         print ( "Init is called")
-        with open('devops.yaml', 'r') as f:
+        with open('labs.yaml', 'r') as f:
             doc = yaml.load(f)
 
         jsonData = json.dumps(doc,indent=4)
