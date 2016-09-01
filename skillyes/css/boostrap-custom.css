@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+.navbar-nav>li>a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 7px;
+    margin-right: 10px;
+}
+.navbar-brand{
+	padding:0;}
+.btn-primary{
+	background-color:#21acec;
+	border:none;
+	border-bottom: #146f9a 4px solid; 
+	}
+.btn-primary:hover{
+	background-color:#37baf6;
+	border-bottom: #146f9a 6px solid;}
+.btn-large{
+	font-size:14pt;
+	font-weight:bold;
+	text-transform:uppercase;
+	padding: 8px 30px;
+	}
+.navbar-nav>li>a{
+	color:rgba(255,255,255,1.00);}
+.navbar-nav>li>a:hover{
+	color: rgba(0,0,0,1.00);}
+.btn-primary.focus, .btn-primary:focus{
+	 color:rgba(255,255,255,1.00);}
